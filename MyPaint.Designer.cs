@@ -52,7 +52,7 @@
             // 
             // btn_circle
             // 
-            this.btn_circle.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btn_circle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btn_circle.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_circle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btn_circle.Location = new System.Drawing.Point(204, 36);
@@ -65,7 +65,7 @@
             // 
             // btn_ellipse
             // 
-            this.btn_ellipse.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btn_ellipse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btn_ellipse.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ellipse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btn_ellipse.Location = new System.Drawing.Point(107, 36);
@@ -78,7 +78,7 @@
             // 
             // btn_line
             // 
-            this.btn_line.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btn_line.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btn_line.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_line.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btn_line.Location = new System.Drawing.Point(12, 36);
