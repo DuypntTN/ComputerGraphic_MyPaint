@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Graphic.cs" />
+    <Compile Include="Line.cs" />
     <Compile Include="MyPaint.cs">
       <SubType>Form</SubType>
     </Compile>
