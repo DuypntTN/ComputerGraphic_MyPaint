@@ -29,6 +29,10 @@ namespace _20127149
         {
             _graphic.SetSelectedShapeType(_graphic.shapeTypes.Circle);
         }
+        private void Btn_Triangle_Cliked(object sender, EventArgs e)
+        {
+            _graphic.SetSelectedShapeType(_graphic.shapeTypes.Triangle);
+        }
 
         private void GlControlMouseUp(object sender, MouseEventArgs e)
         {
@@ -122,9 +126,9 @@ namespace _20127149
 
         private void BtnColorPickerClick(object sender, EventArgs e)
         {
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            if (colorBorderPicker.ShowDialog() == DialogResult.OK)
             {
-                Color color = colorDialog1.Color;
+                Color color = colorBorderPicker.Color;
                 _graphic.SetBorderColor(color);
                 btnPickColorBorder.BackColor = color;
             }
@@ -139,5 +143,6 @@ namespace _20127149
         {
 
         }
+
     }
 }

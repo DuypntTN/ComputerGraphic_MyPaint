@@ -14,8 +14,8 @@ namespace _20127149
             {
                 None = 0;
                 Line = 1;
-                Circle = 2;
-                Triangle = 3;
+                Triangle = 2;
+                Circle = 3;
                 Ellipse = 4;
             }
         }
