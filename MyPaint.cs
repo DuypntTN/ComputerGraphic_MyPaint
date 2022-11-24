@@ -40,14 +40,14 @@ namespace _20127149
             _graphic._isMouseUp = true;
             _graphic._isMouseDown = false;
             _graphic._isDoneDrawing = true;
-
+            _graphic.HandleDrawDone();
             if (_graphic._isDrawing == true)
             {
                 _graphic._endPoint = e.Location;
                 _graphic._isDrawing = false;
                 _graphic._isDoneDrawing = true;
                 RenderCheckedShapeList();
-                _graphic.HandleDrawDone();
+
             }
         }
         private void GlControlMouseDown(object sender, MouseEventArgs e)
@@ -95,7 +95,7 @@ namespace _20127149
 
                 if (shapesInCheckBox[i] == _graphic.shapeTypes.Line)
                 {
-                    type = "Line " + dateTime.TimeOfDay.ToString();
+                    type = "Line " + _graphic._shapes[i]._timeExecuted.ToString();
                 }
                 if (shapesInCheckBox[i] == _graphic.shapeTypes.Rectangular)
                 {
