@@ -1,5 +1,6 @@
 ﻿using SharpGL;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 
 namespace _20127149
@@ -28,6 +29,8 @@ namespace _20127149
         public Point _startPoint, _endPoint;
         public List<Point> _verticesList;
         public List<Shape> _shapes;
+        public Stopwatch _watcher;
+        public double _timeExecuted;
         public Graphic()
         {
             _isDoneDrawing = false;
@@ -39,7 +42,9 @@ namespace _20127149
             _shapes = new List<Shape>();
             _curShape = null;
             _borderWidth = 1f;
-            _borderColor = Color.White;
+            _borderColor = Color.Black;
+            _watcher = new();
+            _timeExecuted = 0;
         }
         public void SetSelectedShapeType(short type)
         {
@@ -70,7 +75,7 @@ namespace _20127149
         {
             if (_selectedShapeType == shapeTypes.Line)
             {
-                _curShape = new Line(_verticesList, _startPoint, _endPoint, _borderWidth, _borderColor);
+                _curShape = new Line(_verticesList, _startPoint, _endPoint, _borderWidth, _borderColor, shapeTypes.Line);
             }
         }
         public void GetInfo()
@@ -94,12 +99,19 @@ namespace _20127149
         public void HandleDrawing(OpenGL gl)
         {
             CreateShape();
+            // start the watcher
+            _watcher.Start();
             _curShape.ShowShape(gl);
+            _watcher.Stop();
+            _timeExecuted = _watcher.Elapsed.TotalMilliseconds * 1000;
+            _curShape._timeExecuted = _timeExecuted;
         }
         public void HandleDrawDone()
         {
             _shapes.Add(_curShape);
             _curShape = null;
+            _timeExecuted = 0;
+            _watcher = new();
             if (_verticesList.Count != 0)
             {
                 _verticesList.Clear();

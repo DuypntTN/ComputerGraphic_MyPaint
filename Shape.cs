@@ -9,11 +9,12 @@ namespace _20127149
     {
         public List<Point> _verticesList = new();
         protected Point _startPoint, _endPoint;
-        protected Color color;
+        public double _timeExecuted;
         public List<Point> _points;
         protected float _borderWidth;
         protected Color _borderColor;
-        public Shape(List<Point> vertices, Point startPoint, Point endPoint, float borderWidth, Color borderColor)
+        public int _typeSharp;
+        public Shape(List<Point> vertices, Point startPoint, Point endPoint, float borderWidth, Color borderColor, int typeShape)
         {
             _verticesList = new List<Point>(vertices);
             _startPoint = startPoint;
@@ -21,6 +22,8 @@ namespace _20127149
             _points = new();
             _borderWidth = borderWidth;
             _borderColor = borderColor;
+            _timeExecuted = 0;
+            _typeSharp = typeShape;
         }
 
         public virtual void ShowShape(OpenGL gl)

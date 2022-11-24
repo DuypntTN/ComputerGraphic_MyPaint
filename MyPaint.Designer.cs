@@ -29,17 +29,21 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnPickColorBorder = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.btn_circle = new System.Windows.Forms.Button();
             this.btn_ellipse = new System.Windows.Forms.Button();
             this.btn_line = new System.Windows.Forms.Button();
+            this.btnPickColorBorder = new System.Windows.Forms.Button();
             this.glControl = new SharpGL.OpenGLControl();
             this.borderWidthControl = new System.Windows.Forms.NumericUpDown();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.colorBorderPicker = new System.Windows.Forms.ColorDialog();
-            this.button1 = new System.Windows.Forms.Button();
+            this.timeExecutedLabel = new System.Windows.Forms.Label();
+            this.componetListLabel = new System.Windows.Forms.Label();
+            this.componentList = new System.Windows.Forms.CheckedListBox();
+            this.executedTime = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.glControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.borderWidthControl)).BeginInit();
@@ -60,18 +64,17 @@
             this.panel1.Size = new System.Drawing.Size(1290, 100);
             this.panel1.TabIndex = 0;
             // 
-            // btnPickColorBorder
+            // button1
             // 
-            this.btnPickColorBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnPickColorBorder.Font = new System.Drawing.Font("Segoe UI Emoji", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPickColorBorder.ForeColor = System.Drawing.Color.Black;
-            this.btnPickColorBorder.Location = new System.Drawing.Point(6, 61);
-            this.btnPickColorBorder.Name = "btnPickColorBorder";
-            this.btnPickColorBorder.Size = new System.Drawing.Size(139, 42);
-            this.btnPickColorBorder.TabIndex = 3;
-            this.btnPickColorBorder.Text = "Pick Color Border";
-            this.btnPickColorBorder.UseVisualStyleBackColor = false;
-            this.btnPickColorBorder.Click += new System.EventHandler(this.BtnColorPickerClick);
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.button1.Location = new System.Drawing.Point(106, 28);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 43);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Triangle";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // btn_circle
             // 
@@ -111,6 +114,20 @@
             this.btn_line.Text = "Line";
             this.btn_line.UseVisualStyleBackColor = false;
             this.btn_line.Click += new System.EventHandler(this.Btn_Line_Cliked);
+            // 
+            // btnPickColorBorder
+            // 
+            this.btnPickColorBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnPickColorBorder.Font = new System.Drawing.Font("Segoe UI Emoji", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPickColorBorder.ForeColor = System.Drawing.Color.Black;
+            this.btnPickColorBorder.Location = new System.Drawing.Point(6, 61);
+            this.btnPickColorBorder.Name = "btnPickColorBorder";
+            this.btnPickColorBorder.Size = new System.Drawing.Size(139, 42);
+            this.btnPickColorBorder.TabIndex = 3;
+            this.btnPickColorBorder.Text = "Pick Color Border";
+            this.btnPickColorBorder.UseVisualStyleBackColor = false;
+            this.btnPickColorBorder.Click += new System.EventHandler(this.BtnColorPickerClick);
+            this.btnPickColorBorder.ForeColor= System.Drawing.Color.White;
             // 
             // glControl
             // 
@@ -157,6 +174,10 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.Info;
+            this.panel2.Controls.Add(this.executedTime);
+            this.panel2.Controls.Add(this.componentList);
+            this.panel2.Controls.Add(this.componetListLabel);
+            this.panel2.Controls.Add(this.timeExecutedLabel);
             this.panel2.Controls.Add(this.btnPickColorBorder);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.borderWidthControl);
@@ -176,7 +197,6 @@
             this.label1.Size = new System.Drawing.Size(97, 16);
             this.label1.TabIndex = 4;
             this.label1.Text = "Border Width";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // numericUpDown1
             // 
@@ -200,18 +220,46 @@
             0,
             0});
             // 
-            // button1
+            // timeExecutedLabel
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button1.Location = new System.Drawing.Point(106, 28);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 43);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Triangle";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.Btn_Triangle_Cliked);
+            this.timeExecutedLabel.AutoSize = true;
+            this.timeExecutedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeExecutedLabel.Location = new System.Drawing.Point(3, 286);
+            this.timeExecutedLabel.Name = "timeExecutedLabel";
+            this.timeExecutedLabel.Size = new System.Drawing.Size(119, 18);
+            this.timeExecutedLabel.TabIndex = 5;
+            this.timeExecutedLabel.Text = "Time Executed";
+            // 
+            // componetListLabel
+            // 
+            this.componetListLabel.AutoSize = true;
+            this.componetListLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.componetListLabel.Location = new System.Drawing.Point(3, 160);
+            this.componetListLabel.Name = "componetListLabel";
+            this.componetListLabel.Size = new System.Drawing.Size(122, 18);
+            this.componetListLabel.TabIndex = 6;
+            this.componetListLabel.Text = "Component list";
+            // 
+            // componentList
+            // 
+            this.componentList.FormattingEnabled = true;
+            this.componentList.Items.AddRange(new object[] {
+            "Line",
+            "Line"});
+            this.componentList.Location = new System.Drawing.Point(6, 189);
+            this.componentList.Name = "componentList";
+            this.componentList.Size = new System.Drawing.Size(120, 94);
+            this.componentList.TabIndex = 7;
+            this.componentList.SelectedIndexChanged += new System.EventHandler(this.CheckedListBoxSelectedIndexChanged);
+            // 
+            // executedTime
+            // 
+            this.executedTime.AutoSize = true;
+            this.executedTime.Location = new System.Drawing.Point(6, 308);
+            this.executedTime.Name = "executedTime";
+            this.executedTime.Size = new System.Drawing.Size(35, 13);
+            this.executedTime.TabIndex = 8;
+            this.executedTime.Text = "label2";
             // 
             // MyPaint
             // 
@@ -247,6 +295,10 @@
         private System.Windows.Forms.Button btnPickColorBorder;
         private System.Windows.Forms.ColorDialog colorBorderPicker;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label timeExecutedLabel;
+        private System.Windows.Forms.CheckedListBox componentList;
+        private System.Windows.Forms.Label componetListLabel;
+        private System.Windows.Forms.Label executedTime;
     }
 }
 

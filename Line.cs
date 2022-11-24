@@ -6,7 +6,7 @@ namespace _20127149
 {
     internal class Line : Shape
     {
-        public Line(List<Point> _verticesList, Point startPoint, Point endPoint, float borderWidth, Color borderColor) : base(_verticesList, startPoint, endPoint, borderWidth, borderColor)
+        public Line(List<Point> _verticesList, Point startPoint, Point endPoint, float borderWidth, Color borderColor, int typeShape) : base(_verticesList, startPoint, endPoint, borderWidth, borderColor, typeShape)
         {
             List<Point> points = new();
             this._verticesList = points;
@@ -14,6 +14,7 @@ namespace _20127149
             this._verticesList.Add(endPoint);
             this._borderWidth = borderWidth;
             this._borderColor = borderColor;
+            this._typeSharp = typeShape;
         }
         public override void ShowShape(OpenGL gl)
         {
