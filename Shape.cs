@@ -12,7 +12,7 @@ namespace _20127149
         public double _timeExecuted;
         public List<Point> _points;
         protected float _borderWidth;
-        protected Color _borderColor;
+        public Color _borderColor;
         public int _typeSharp;
         public Shape(List<Point> vertices, Point startPoint, Point endPoint, float borderWidth, Color borderColor, int typeShape)
         {
@@ -32,6 +32,18 @@ namespace _20127149
         public void DrawListPoint(List<Point> points, OpenGL gl)
         {
             gl.Color(_borderColor.R / 255.0, _borderColor.G / 255.0, _borderColor.B / 255.0);
+            gl.PointSize(_borderWidth);
+            gl.Begin(OpenGL.GL_POINTS);
+            for (int i = 0; i < points.Count(); i += 1)
+            {
+                gl.Vertex(points[i].X, gl.RenderContextProvider.Height - points[i].Y);
+            }
+            gl.End();
+            gl.Flush();
+        }
+        public void DrawListPointWithColor(List<Point> points, OpenGL gl, Color color)
+        {
+            gl.Color(color.R / 255.0, color.G / 255.0, color.B / 255.0);
             gl.PointSize(_borderWidth);
             gl.Begin(OpenGL.GL_POINTS);
             for (int i = 0; i < points.Count(); i += 1)

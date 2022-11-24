@@ -10,12 +10,12 @@ namespace _20127149
     {
         public struct ShapeTypes
         {
-            public short Line, Triangle, Ellipse, None, Circle;
+            public short Line, Rectangular, Ellipse, None, Circle;
             public ShapeTypes()
             {
                 None = 0;
                 Line = 1;
-                Triangle = 2;
+                Rectangular = 2;
                 Circle = 3;
                 Ellipse = 4;
             }
@@ -77,9 +77,35 @@ namespace _20127149
             {
                 _curShape = new Line(_verticesList, _startPoint, _endPoint, _borderWidth, _borderColor, shapeTypes.Line);
             }
+            if (_selectedShapeType == shapeTypes.Rectangular)
+            {
+                _curShape = new Rectangular(_verticesList, _startPoint, _endPoint, _borderWidth, _borderColor, shapeTypes.Rectangular);
+            }
         }
-        public void GetInfo()
+        public List<int> GetInfoCurrentShapesList()
         {
+            if (_shapes == null)
+                return new();
+            List<int> listShape = new();
+            for (int i = 0; i < _shapes.Count; i++)
+            {
+                if (_shapes[i] != null)
+                    listShape.Add(_shapes[i]._typeSharp);
+            }
+            return listShape;
+        }
+
+        public void ChangeColorShape(Color color, int index)
+        {
+            if (_shapes[index] != null)
+            {
+                if (_shapes[index]._borderColor == color)
+                {
+                    _shapes[index]._borderColor = _borderColor;
+                }
+                _shapes[index]._borderColor = color;
+            }
+
         }
         public void HandleDraw(OpenGL gl)
         {
@@ -117,5 +143,7 @@ namespace _20127149
                 _verticesList.Clear();
             }
         }
+
+
     }
 }

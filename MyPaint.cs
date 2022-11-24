@@ -1,5 +1,6 @@
 ﻿using SharpGL;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -29,9 +30,9 @@ namespace _20127149
         {
             _graphic.SetSelectedShapeType(_graphic.shapeTypes.Circle);
         }
-        private void Btn_Triangle_Cliked(object sender, EventArgs e)
+        private void Btn_Rectangular_Cliked(object sender, EventArgs e)
         {
-            _graphic.SetSelectedShapeType(_graphic.shapeTypes.Triangle);
+            _graphic.SetSelectedShapeType(_graphic.shapeTypes.Rectangular);
         }
 
         private void GlControlMouseUp(object sender, MouseEventArgs e)
@@ -44,7 +45,6 @@ namespace _20127149
                 _graphic._endPoint = e.Location;
                 _graphic._isDrawing = false;
                 _graphic._isDoneDrawing = true;
-                Console.WriteLine("Ve xong");
             }
         }
         private void GlControlMouseDown(object sender, MouseEventArgs e)
@@ -54,7 +54,6 @@ namespace _20127149
             _graphic._isDoneDrawing = false;
             if (e.Button == MouseButtons.Left && _graphic._selectedShapeType != _graphic.shapeTypes.None)
             {
-                Console.WriteLine("Dang ve");
                 _graphic._startPoint = e.Location;
                 _graphic._endPoint = _graphic._startPoint;
                 _graphic._isDrawing = true;
@@ -75,6 +74,7 @@ namespace _20127149
             OpenGL gl = glControl.OpenGL;
             gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
             executedTime.Text = _graphic._timeExecuted.ToString() + "ms";
+            RenderCheckedShapeList();
             if (_graphic._selectedShapeType != _graphic.shapeTypes.None)
             {
                 _graphic.HandleDraw(gl);
@@ -82,6 +82,25 @@ namespace _20127149
             }
         }
 
+        private void RenderCheckedShapeList()
+        {
+            List<int> shapesInCheckBox = _graphic.GetInfoCurrentShapesList();
+            DateTime dateTime = DateTime.Now;
+            for (int i = 0; i < shapesInCheckBox.Count; i++)
+            {
+                string type = "";
+                if (shapesInCheckBox[i] == _graphic.shapeTypes.Line)
+                {
+                    type = "Line " + dateTime.TimeOfDay.ToString();
+                }
+                if (shapesInCheckBox[i] == _graphic.shapeTypes.Rectangular)
+                {
+                    type = "Rectangle" + dateTime.TimeOfDay.ToString();
+                }
+                if (componentList.Items.Count <= i)
+                    componentList.Items.Add(type);
+            }
+        }
 
         private void BorderWidthControlValueChanged(object sender, EventArgs e)
         {
@@ -100,10 +119,17 @@ namespace _20127149
             }
 
         }
-        private void CheckedListBoxSelectedIndexChanged(object sender, EventArgs e)
-        {
+        /* private void CheckedListBoxSelectedIndexChanged(object sender, EventArgs e)
+         {
+             for (int i = 0; i < componentList.SelectedIndices.Count; i++)
+             {
+                 Console.WriteLine(componentList.SelectedIndices[i].ToString());
+                 _graphic.ChangeColorShape(Color.Red, componentList.SelectedIndices[i]);
+             }
+             *//*   Console.WriteLine("Index " + index.ToString());
+                _graphic.ChangeColorShape(Color.Red, index);*//*
 
-        }
+         }*/
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -133,6 +159,15 @@ namespace _20127149
             gl.Ortho2D(0, glControl.Width, 0, glControl.Height);
 
         }
+
+        /*  private void CheckedListBoxSelectedIndexChanged(object sender, ItemCheckEventArgs e)
+          {
+              for (int i = 0; i < componentList.SelectedIndices.Count; i++)
+              {
+                  Console.WriteLine(componentList.SelectedIndices[i].ToString());
+                  _graphic.ChangeColorShape(Color.Red, componentList.SelectedIndices[i]);
+              }
+          }*/
 
     }
 }
