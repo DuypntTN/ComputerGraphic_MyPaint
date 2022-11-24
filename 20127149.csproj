@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1A35F724-1EF7-454E-A8F7-A4A64F5AD1E5}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>_20127149</RootNamespace>
     <AssemblyName>20127149</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Circle.cs" />
+    <Compile Include="Ellipse.cs" />
     <Compile Include="Graphic.cs" />
     <Compile Include="Line.cs" />
     <Compile Include="MyPaint.cs">

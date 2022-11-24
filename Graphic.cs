@@ -73,6 +73,7 @@ namespace _20127149
 
         public void CreateShape()
         {
+            // Choose what type of shapes can be drawn
             if (_selectedShapeType == shapeTypes.Line)
             {
                 _curShape = new Line(_verticesList, _startPoint, _endPoint, _borderWidth, _borderColor, shapeTypes.Line);
@@ -84,6 +85,10 @@ namespace _20127149
             if (_selectedShapeType == shapeTypes.Circle)
             {
                 _curShape = new Circle(_verticesList, _startPoint, _endPoint, _borderWidth, _borderColor, shapeTypes.Circle);
+            }
+            if (_selectedShapeType == shapeTypes.Ellipse)
+            {
+                _curShape = new Ellipse(_verticesList, _startPoint, _endPoint, _borderWidth, _borderColor, shapeTypes.Ellipse);
             }
         }
         public List<int> GetInfoCurrentShapesList()
@@ -99,17 +104,21 @@ namespace _20127149
             return listShape;
         }
 
-        public void ChangeColorShape(Color color, int index)
+        public void ToggleSelectShapeInCheckBox(int index)
         {
+            // to toggle the shape that is selected
             if (_shapes[index] != null)
             {
-                if (_shapes[index]._borderColor == color)
+                bool status = _shapes[index]._isSelectedInCheckBox;
+                if (status)
                 {
-                    _shapes[index]._borderColor = _borderColor;
+                    _shapes[index]._isSelectedInCheckBox = false;
                 }
-                _shapes[index]._borderColor = color;
+                else
+                {
+                    _shapes[index]._isSelectedInCheckBox = true;
+                }
             }
-
         }
         public void HandleDraw(OpenGL gl)
         {

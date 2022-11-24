@@ -204,6 +204,7 @@
             this.componentList.Name = "componentList";
             this.componentList.Size = new System.Drawing.Size(139, 94);
             this.componentList.TabIndex = 7;
+            this.componentList.SelectedIndexChanged += new System.EventHandler(this.CheckedListBoxSelectedIndexChanged);
             // 
             // componetListLabel
             // 

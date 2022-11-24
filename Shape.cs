@@ -10,6 +10,7 @@ namespace _20127149
         public List<Point> _verticesList = new();
         protected Point _startPoint, _endPoint;
         public double _timeExecuted;
+        public bool _isSelectedInCheckBox;
         public List<Point> _points;
         protected float _borderWidth;
         public Color _borderColor;
@@ -24,6 +25,7 @@ namespace _20127149
             _borderColor = borderColor;
             _timeExecuted = 0;
             _typeSharp = typeShape;
+            _isSelectedInCheckBox = false;
         }
 
         public virtual void ShowShape(OpenGL gl)
@@ -35,7 +37,16 @@ namespace _20127149
         }
         public void DrawListPoint(List<Point> points, OpenGL gl)
         {
-            gl.Color(_borderColor.R / 255.0, _borderColor.G / 255.0, _borderColor.B / 255.0);
+
+
+            if (_isSelectedInCheckBox)
+            {
+                gl.Color(Color.Red.R / 255.0, Color.Red.G / 255.0, Color.Red.B / 255.0);
+            }
+            else
+            {
+                gl.Color(_borderColor.R / 255.0, _borderColor.G / 255.0, _borderColor.B / 255.0);
+            }
             gl.PointSize(_borderWidth);
             gl.Begin(OpenGL.GL_POINTS);
             for (int i = 0; i < points.Count(); i += 1)
