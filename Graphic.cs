@@ -113,10 +113,6 @@ namespace _20127149
         }
         public void HandleDraw(OpenGL gl)
         {
-            if (_isDoneDrawing == true)
-            {
-                HandleDrawDone();
-            }
             if (_isDrawing == true)
             {
                 HandleDrawing(gl);

@@ -40,11 +40,14 @@ namespace _20127149
             _graphic._isMouseUp = true;
             _graphic._isMouseDown = false;
             _graphic._isDoneDrawing = true;
+
             if (_graphic._isDrawing == true)
             {
                 _graphic._endPoint = e.Location;
                 _graphic._isDrawing = false;
                 _graphic._isDoneDrawing = true;
+                RenderCheckedShapeList();
+                _graphic.HandleDrawDone();
             }
         }
         private void GlControlMouseDown(object sender, MouseEventArgs e)
@@ -74,7 +77,7 @@ namespace _20127149
             OpenGL gl = glControl.OpenGL;
             gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
             executedTime.Text = _graphic._timeExecuted.ToString() + "ms";
-            RenderCheckedShapeList();
+
             if (_graphic._selectedShapeType != _graphic.shapeTypes.None)
             {
                 _graphic.HandleDraw(gl);
@@ -89,6 +92,7 @@ namespace _20127149
             for (int i = 0; i < shapesInCheckBox.Count; i++)
             {
                 string type = "";
+
                 if (shapesInCheckBox[i] == _graphic.shapeTypes.Line)
                 {
                     type = "Line " + dateTime.TimeOfDay.ToString();
@@ -103,6 +107,7 @@ namespace _20127149
                 }
                 if (componentList.Items.Count <= i)
                     componentList.Items.Add(type);
+
             }
         }
 

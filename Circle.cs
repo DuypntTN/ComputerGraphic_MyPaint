@@ -42,7 +42,7 @@ namespace _20127149
             _verticesList.Add(new(r + centerPoint.X, centerPoint.Y));
             //(-r,0)
             _verticesList.Add(new(-r + centerPoint.X, centerPoint.Y));
-            //
+            // because R is interger -> so p = 5/4 -r
             int p = 5 / 4 - r;
             // Draw circle method
             while (point.X < point.Y)
@@ -62,31 +62,31 @@ namespace _20127149
                 temp.X = point.X + centerPoint.X;
                 temp.Y = point.Y + centerPoint.Y;
                 _verticesList.Add(temp);
-                Point temp1 = new Point();
+                Point temp1 = new();
                 temp1.X = point.Y + centerPoint.X;
                 temp1.Y = point.X + centerPoint.Y;
                 _verticesList.Add(temp1);
-                Point temp2 = new Point();
+                Point temp2 = new();
                 temp2.X = point.Y + centerPoint.X;
                 temp2.Y = -point.X + centerPoint.Y;
                 _verticesList.Add(temp2);
-                Point temp3 = new Point();
+                Point temp3 = new();
                 temp3.X = point.X + centerPoint.X;
                 temp3.Y = -point.Y + centerPoint.Y;
                 _verticesList.Add(temp3);
-                Point temp4 = new Point();
+                Point temp4 = new();
                 temp4.X = -point.X + centerPoint.X;
                 temp4.Y = -point.Y + centerPoint.Y;
                 _verticesList.Add(temp4);
-                Point temp5 = new Point();
+                Point temp5 = new();
                 temp5.X = -point.Y + centerPoint.X;
                 temp5.Y = -point.X + centerPoint.Y;
                 _verticesList.Add(temp5);
-                Point temp6 = new Point();
+                Point temp6 = new();
                 temp6.X = -point.Y + centerPoint.X;
                 temp6.Y = point.X + centerPoint.Y;
                 _verticesList.Add(temp6);
-                Point temp7 = new Point();
+                Point temp7 = new();
                 temp7.X = -point.X + centerPoint.X;
                 temp7.Y = point.Y + centerPoint.Y;
                 _verticesList.Add(temp7);
