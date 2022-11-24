@@ -81,6 +81,10 @@ namespace _20127149
             {
                 _curShape = new Rectangular(_verticesList, _startPoint, _endPoint, _borderWidth, _borderColor, shapeTypes.Rectangular);
             }
+            if (_selectedShapeType == shapeTypes.Circle)
+            {
+                _curShape = new Circle(_verticesList, _startPoint, _endPoint, _borderWidth, _borderColor, shapeTypes.Circle);
+            }
         }
         public List<int> GetInfoCurrentShapesList()
         {

@@ -97,6 +97,10 @@ namespace _20127149
                 {
                     type = "Rectangle" + dateTime.TimeOfDay.ToString();
                 }
+                if (shapesInCheckBox[i] == _graphic.shapeTypes.Circle)
+                {
+                    type = "Circle " + dateTime.TimeOfDay.ToString();
+                }
                 if (componentList.Items.Count <= i)
                     componentList.Items.Add(type);
             }
@@ -130,11 +134,6 @@ namespace _20127149
                 _graphic.ChangeColorShape(Color.Red, index);*//*
 
          }*/
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
 
         private void GlControl_OpenGLInitialized(object sender, EventArgs e)
         {

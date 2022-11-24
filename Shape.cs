@@ -29,6 +29,10 @@ namespace _20127149
         public virtual void ShowShape(OpenGL gl)
         {
         }
+        public virtual void ContributePoints(Point startPoint, Point endPoint)
+        {
+
+        }
         public void DrawListPoint(List<Point> points, OpenGL gl)
         {
             gl.Color(_borderColor.R / 255.0, _borderColor.G / 255.0, _borderColor.B / 255.0);

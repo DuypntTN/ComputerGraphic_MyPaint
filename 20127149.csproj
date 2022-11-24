@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Circle.cs" />
     <Compile Include="Graphic.cs" />
     <Compile Include="Line.cs" />
     <Compile Include="MyPaint.cs">
